@@ -14,16 +14,16 @@
         - show interfaces status
     register: output
 
-  - name: Display the output
-    debug: var=output.stdout
+#  - name: Display the output
+#    debug: var=output.stdout
 
   - name: Parse the output
     command_parser:
       file: "parsers/ios/show_interfaces_status_parser.yml"
       content: "{{ output.stdout[0] }}"
 
-  - name: Display the data
-    debug: var=interfaces_status_facts
+#  - name: Display the data
+#    debug: var=interfaces_status_facts
 
 
   - name: Delete '/tmp/interfaces_status_facts-[inventory_hostname].json'

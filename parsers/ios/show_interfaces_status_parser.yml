@@ -11,11 +11,9 @@
 
 - name: Match pattern
   pattern_match:
-    regex: "^(\\S+)\\s{5}(.+)\\s+(connected|notconnect)\\s+(\\d+)\\s+(\\S+)\\s+(\\S+)\\s+(\\S+)"
-    #regex: "^(\\S+)\\s{5}(\\D+)\\s+(connected|notconnect)\\s+(\\d+)\\s+(\\S+)\\s+(\\S+)\\s+(\\S+)" 
+    regex: "^(\\S+)\\s{2}(.+)\\s+(connected|notconnect|disabled)\\s+(\\S+)\\s+(\\S+)\\s+(\\S+)(.+)"
     match_all: yes
   register: section
-
 
 - name: Generate json data structure
   json_template:
@@ -38,7 +36,6 @@
               value: "{{ item.matches.5 }}"
             - key: type
               value: "{{ item.matches.6 }}"
-
 
   loop: "{{ section }}"
 
