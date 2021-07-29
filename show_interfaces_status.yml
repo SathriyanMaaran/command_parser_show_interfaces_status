@@ -2,7 +2,7 @@
 
 # This is a playbook for Ansible using network-engine with "show interfaces status" parser.
 
-- hosts: ios-devices
+- hosts: 27.27.27.208
 
   roles:
   - ansible-network.network-engine
